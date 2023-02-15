@@ -6,7 +6,7 @@ void main() {
   
   // const String name = "Dewi Titiyasari"; -> const wajib langsung mengisi nilai dari variable
 
-  // final dan const -> nilai dari variable tidak bisa dirubah lagi
+  // final dan const -> nilai dari variable tidak bisa dirubah lagi 
   
   String name = "dede nugroho";
   name = "Dewi Titiyasari";
