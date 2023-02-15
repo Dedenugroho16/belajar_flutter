@@ -1,19 +1,12 @@
-// tidak bisa dijalankan di widget_test.dart, bisanya di main.dart, jadi dicobain nya di web DartPad.dev
-
-// uncomplete
-// complete -> success
-// complete -> error
-
 void main() {
-  print('A');
-  asynchronous().then((data)=>print(data)).catchError((err)=>print(err));
-  print('C');
-}
+// materi exceptions(try & catch)
 
-Future<String> asynchronous() async {
- await Future.delayed(Duration(seconds: 2));
-  
-  print('B');
-  
-  return 'Berhasil';
+  try {
+    int umur = int.parse('abc');
+    print(umur);
+  } on FormatException {
+    print('Data yang anda masukkan formatnya salah');
+  } catch (error) {
+    print(error); // di dalam catch ini untuk error secara general
+  }
 }
