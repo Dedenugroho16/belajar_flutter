@@ -1,16 +1,19 @@
+// tidak bisa dijalankan di widget_test.dart, bisanya di main.dart, jadi dicobain nya di web DartPad.dev
+
+// uncomplete
+// complete -> success
+// complete -> error
+
 void main() {
-  int hasilPenjumlahan = penjumlahan(10, 22);
-  hasilPenjumlahan = hasilPenjumlahan * 2;
-  print('ini adalah hasil menjalankan fungsi di fungsi main: $hasilPenjumlahan'); 
-  pengurangan(10, 22);
+  print('A');
+  asynchronous().then((data)=>print(data)).catchError((err)=>print(err));
+  print('C');
 }
 
-int penjumlahan(int x, int y) {
-  int hasil = x + y; // variable local
-  print('ini adalah hasil menjalankan fungsi di fungsi lokal: $hasil');
-  return hasil;
-}
-
-void pengurangan(int x, int y) {
-  print(x-y);
+Future<String> asynchronous() async {
+ await Future.delayed(Duration(seconds: 2));
+  
+  print('B');
+  
+  return 'Berhasil';
 }
