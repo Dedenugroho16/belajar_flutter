@@ -1,15 +1,16 @@
 void main() {
-  // final dan const
+  int hasilPenjumlahan = penjumlahan(10, 22);
+  hasilPenjumlahan = hasilPenjumlahan * 2;
+  print('ini adalah hasil menjalankan fungsi di fungsi main: $hasilPenjumlahan'); 
+  pengurangan(10, 22);
+}
 
-  // final String name;
-  // name = "Dewi Titiyasari"; 
-  
-  // const String name = "Dewi Titiyasari"; -> const wajib langsung mengisi nilai dari variable
+int penjumlahan(int x, int y) {
+  int hasil = x + y; // variable local
+  print('ini adalah hasil menjalankan fungsi di fungsi lokal: $hasil');
+  return hasil;
+}
 
-  // final dan const -> nilai dari variable tidak bisa dirubah lagi
-  
-  String name = "dede nugroho";
-  name = "Dewi Titiyasari";
-
-  print(name);
+void pengurangan(int x, int y) {
+  print(x-y);
 }
