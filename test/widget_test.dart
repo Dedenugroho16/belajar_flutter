@@ -9,22 +9,18 @@ void main() {
   // ? => variable diperbolehkan null
   // ?? => untuk menghandle null
   // ! => kita sudah memastikan dengan sesungguhnya/yakin banget loohhh bahwa data sudah pasti ada dan tidak null
-  // late 
+  // late => untuk memastikan bahwa sebelum diparsing wajib diinisialisasi
 
-  String? nama=getNama(); // ketika menambahkan ? => variable diperbolehkan null
+  late String nama;
+  
+  // sebelum data diparsing ke fungsi printNama, maka data wajib diisi dulu value nya, 
+  //misal ngga diisi maka akan error, hal itu terjadi karena penggunaan sintaks "late""
+  nama = "Wednesday"; 
 
-  // print(nama?.length ?? "Tidak ada data nama");
-
-  if(nama?.length == null) {
-    // menghandle null
-    print("Tidak ada data");
-  } else {
-    // sudah dipastikan ada datanya
-    print("$nama terdiri dari ${nama!.length} karakter");
-  }
+  printNama(nama);
 
 }
 
-String? getNama() {
-  return "Dewi Titiyasari Cantik";
+String? printNama(String parameterNama) {
+  print(parameterNama);
 }
