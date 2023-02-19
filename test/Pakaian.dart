@@ -5,14 +5,14 @@ class Pakaian {
   String? _ukuran; // private attribute
 
   // // CONSTRUCTOR
-  // // Positional arguments => manual
+  // // Positional arguments constructor => manual
   // // bisa menggunakan konsep direct named arguments juga, namun tetap perlu diperhatikan urutannya
   // Pakaian(String jenisnya, String warnanya){
   //   jenis = jenisnya;
   //   warna = warnanya;
   // }
 
-  // // named arguments => manual
+  // // named arguments constructor => manual
   // Pakaian({String? jenisnya, String? warnanya}){
   //   jenis = jenisnya;
   //   warna = warnanya;
@@ -45,5 +45,4 @@ class Pakaian {
   String? get getUkuran{
     return _ukuran;
   }
-
 }
