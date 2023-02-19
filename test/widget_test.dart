@@ -1,11 +1,19 @@
-import 'Pakaian.dart';
+import 'burung.dart';
+import 'kucing.dart';
 
 void main() {
-  // var pakaian1 = Pakaian("Jaket", "Biru"); // positional arguments (posisi value nya harus sesuai dengan argument)
-  // var pakaian1 = Pakaian(warnanya: "Biru", jenisnya: "Jaket"); // named arguments (posisi nya bebas tapi harus sesuai dengan nama argument)
-  var pakaian1 = Pakaian(warna: "Biru", jenis: "Jaket", ukuran: "XXL"); // direct named arguments constructor => argument yang diparsing ke class Pakaian akan otomatis diinisialisasi ke attribute class tersebut
-  print("${pakaian1.jenis} warna - ${pakaian1.warna} - ukuran - ${pakaian1.getUkuran}");
-  pakaian1.setUkuran = "XL";
-  print("Ganti Ukuran");
-  print("${pakaian1.jenis} warna - ${pakaian1.warna} - ukuran - ${pakaian1.getUkuran}");
+  Kucing hewan1 = Kucing(jumlahKaki: 4, berat: 10, kecepatanlari: 90);
+  Burung hewan2 = Burung(jumlahKaki: 2, berat: 1, kecepatanTerbang: 50);
+
+  print("Hewan ${hewan1.nama} - ${hewan1.kategori} - berkaki ${hewan1.jumlahKaki} - kecepatan lari ${hewan1.kecepatanlari}km/h - berat ${hewan1.berat}kg");
+  hewan1.makan = 3;
+  print("SETELAH MAKAN 3KG");
+  print("Hewan ${hewan1.nama} - ${hewan1.kategori} - berkaki ${hewan1.jumlahKaki} - kecepatan lari ${hewan1.kecepatanlari}km/h - berat ${hewan1.berat}kg");
+
+  print("\n =============== \n");
+
+  print("Hewan ${hewan2.nama} - ${hewan2.kategori} - berkaki ${hewan2.jumlahKaki} - kecepatan lari ${hewan2.kecepatanTerbang}km/h - berat ${hewan2.berat}kg");
+  hewan2.makan = 3;
+  print("SETELAH MAKAN 3KG");
+  print("Hewan ${hewan2.nama} - ${hewan2.kategori} - berkaki ${hewan2.jumlahKaki} - kecepatan lari ${hewan2.kecepatanTerbang}km/h - berat ${hewan2.berat}kg");
 }
