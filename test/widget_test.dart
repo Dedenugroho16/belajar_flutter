@@ -1,30 +1,42 @@
-import 'burung.dart';
-import 'kucing.dart';
-import 'anjing.dart';
+enum Motor{
+  nMax,
+  xMax,
+  freego,
+  lexi,
+  fazzio,
+  r25
+}
+void main(){
+  // enum => true / false 
+  // bool isMale = true;
+  // if(isMale == true){
+  //   print("Dia laki-laki");
+  // } else{
+  //   print("Dia perempuan");
+  // }
 
-void main() {
-  Kucing hewan1 = Kucing(jumlahKaki: 4, berat: 10);
-  Burung hewan2 = Burung(jumlahKaki: 2, berat: 1, kecepatanTerbang: 50);
-  Anjing hewan3 = Anjing(jumlahKaki:4, berat:90, kecepatanBerenang: 70);
-  
-  hewan1.setLari = 10;
-  print("Hewan ${hewan1.nama} - ${hewan1.kategori} - berkaki ${hewan1.jumlahKaki} - kecepatan lari ${hewan1.lari}km/h - berat ${hewan1.berat}kg");
-  hewan1.makan = 3;
-  print("SETELAH MAKAN 3KG");
-  print("Hewan ${hewan1.nama} - ${hewan1.kategori} - berkaki ${hewan1.jumlahKaki} - kecepatan lari ${hewan1.lari}km/h - berat ${hewan1.berat}kg");
+  // enum => dengan menggunakan integer => bisa banyak data
+  // 0 : laki-laki
+  // 1 : perempuan
+  // selain 1 & 0 : tidak diketahui
+  // int jk = 2;
+  // if(jk == 0){
+  //   print("Dia laki-laki");
+  // } else if(jk == 1){
+  //   print("Dia perempuan");
+  // } else{
+  //   print("tidak diketahui");
+  // }
 
-  print("\n =============== \n");
-
-  print("Hewan ${hewan2.nama} - ${hewan2.kategori} - berkaki ${hewan2.jumlahKaki} - kecepatan lari ${hewan2.kecepatanTerbang}km/h - berat ${hewan2.berat}kg");
-  hewan2.makan = 3;
-  print("SETELAH MAKAN 3KG");
-  print("Hewan ${hewan2.nama} - ${hewan2.kategori} - berkaki ${hewan2.jumlahKaki} - kecepatan lari ${hewan2.kecepatanTerbang}km/h - berat ${hewan2.berat}kg");
-
-  print("\n =============== \n");
-
-  hewan3.setLari = 100;
-  print("Hewan ${hewan3.nama} - ${hewan3.kategori} - berkaki ${hewan3.jumlahKaki} - kecepatan lari ${hewan3.lari}km/h - - kecepatan berenang ${hewan3.kecepatanBerenang} - berat ${hewan3.berat}kg");
-  hewan3.makan = 3;
-  print("SETELAH MAKAN 3KG");
-  print("Hewan ${hewan3.nama} - ${hewan3.kategori} - berkaki ${hewan3.jumlahKaki} - kecepatan lari ${hewan3.lari}km/h - kecepatan berenang ${hewan3.kecepatanBerenang} - berat ${hewan3.berat}kg");
+  // the real enum
+  var motorGue = Motor.lexi;
+  if(motorGue == Motor.lexi){
+    print("Motor Lexi");
+  } else if(motorGue == Motor.fazzio){
+    print("Motor Fazzio");
+  } else if(motorGue == Motor.freego){
+    print("Motor Freego");
+  } else {
+    print("Tidak tahu tuh motor apa");
+  }
 }
