@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/kotak_warna.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,53 +12,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Mama gigit nih awww"),
-        ),
-
-        body: GridView(
-          padding: EdgeInsets.all(20),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
+        appBar: AppBar(title: Text("Extract Widget"),),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              KotakWarna(text: "Merah", warna: Colors.red),
+              KotakWarna(text: "Kuning", warna: Colors.yellow),
+              KotakWarna(text: "Hijau", warna: Colors.green),
+              KotakWarna(text: "Oranye", warna: Colors.orange,),
+            ],
           ),
-          children: [
-            Container(
-              color: Colors.amber,
-            ),
-            Container(
-              color: Colors.black,
-            ),
-            Container(
-              color: Colors.cyan,
-            ),
-            Container(
-              color: Colors.deepOrange,
-            ),
-            Container(
-              color: Colors.green,
-            ),
-            Container(
-              color: Colors.indigo,
-            ),
-            Container(
-              color: Colors.lightBlue,
-            ),
-            Container(
-              color: Colors.amber,
-            ),
-            Container(
-              color: Colors.black,
-            ),
-            Container(
-              color: Colors.cyan,
-            ),
-            Container(
-              color: Colors.deepOrange,
-            ),
-          ],
-        ) 
+        ),
       ),
     );
   }
