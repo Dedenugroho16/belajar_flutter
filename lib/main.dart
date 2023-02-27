@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,28 +12,52 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red[900],
-          title: Text("Aku adalah manusia super"),
-          centerTitle: true,
+          title: Text("Mama gigit nih awww"),
         ),
-        body: Center(
-          // Image Provider:
-          // 1. AssetImage -> gambar yang ada pada folder project, dan perlu didaftarkan di pubspec.yaml
-          // 2. NetworkImage -> ambil dari internet(url)
-          // Jarang digunakan -> pada kasus tertentu
-          // 3. FileImage
-          // 4. MemoryImage
 
-
-
-          // child: Image(
-          //   image: AssetImage("assets/dede.jpg"),
-          // ),
-
-          // cara singkat
-          child: Image.asset("assets/dede.jpg"),
-
-        )
+        body: GridView(
+          padding: EdgeInsets.all(20),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+          ),
+          children: [
+            Container(
+              color: Colors.amber,
+            ),
+            Container(
+              color: Colors.black,
+            ),
+            Container(
+              color: Colors.cyan,
+            ),
+            Container(
+              color: Colors.deepOrange,
+            ),
+            Container(
+              color: Colors.green,
+            ),
+            Container(
+              color: Colors.indigo,
+            ),
+            Container(
+              color: Colors.lightBlue,
+            ),
+            Container(
+              color: Colors.amber,
+            ),
+            Container(
+              color: Colors.black,
+            ),
+            Container(
+              color: Colors.cyan,
+            ),
+            Container(
+              color: Colors.deepOrange,
+            ),
+          ],
+        ) 
       ),
     );
   }
