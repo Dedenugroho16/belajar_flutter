@@ -1,28 +1,43 @@
-import 'dart:math';
+// ignore_for_file: prefer_const_constructors, unused_import
 
 import 'package:flutter/material.dart';
-import 'widgets/kotak_warna.dart';
+import 'widgets/soal_1.dart';
+import 'widgets/soal_2.dart';
+import 'widgets/soal_3.dart';
+import 'widgets/soal_4.dart';
+import 'widgets/soal_5.dart';
+import 'widgets/soal_6.dart';
+import 'widgets/soal_7.dart';
+import 'widgets/soal_8.dart';
+import 'widgets/soal_9.dart';
+import 'widgets/soal_10.dart';
+import 'widgets/soal_11.dart';
+import 'widgets/soal_12.dart';
+import 'widgets/soal_13.dart';
+import 'widgets/soal_14.dart';
+import 'widgets/soal_15.dart';
+import 'widgets/soal_16.dart';
+import 'widgets/soal_17.dart';
+import 'widgets/soal_18.dart';
+import 'widgets/soal_19.dart';
+import 'widgets/soal_20.dart';
+import 'widgets/soal_21.dart';
+import 'widgets/soal_22.dart';
+import 'widgets/soal_23.dart';
+import 'widgets/soal_24.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text("Extract Widget"),
-          ),
-          body: GridView.builder(
-              padding: EdgeInsets.all(5),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, mainAxisSpacing: 5, crossAxisSpacing: 5), 
-              itemBuilder: (context, index) => Container(
-                color: Color.fromARGB(255, Random().nextInt(256), Random().nextInt(256), Random().nextInt(256)),
-              ),
-          )
-      ),
+      debugShowCheckedModeBanner: false,
+      home: Soal24(),
     );
   }
 }
