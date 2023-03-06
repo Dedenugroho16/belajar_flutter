@@ -1,30 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unused_import
-
 import 'package:flutter/material.dart';
-import 'widgets/soal_1.dart';
-import 'widgets/soal_2.dart';
-import 'widgets/soal_3.dart';
-import 'widgets/soal_4.dart';
-import 'widgets/soal_5.dart';
-import 'widgets/soal_6.dart';
-import 'widgets/soal_7.dart';
-import 'widgets/soal_8.dart';
-import 'widgets/soal_9.dart';
-import 'widgets/soal_10.dart';
-import 'widgets/soal_11.dart';
-import 'widgets/soal_12.dart';
-import 'widgets/soal_13.dart';
-import 'widgets/soal_14.dart';
-import 'widgets/soal_15.dart';
-import 'widgets/soal_16.dart';
-import 'widgets/soal_17.dart';
-import 'widgets/soal_18.dart';
-import 'widgets/soal_19.dart';
-import 'widgets/soal_20.dart';
-import 'widgets/soal_21.dart';
-import 'widgets/soal_22.dart';
-import 'widgets/soal_23.dart';
-import 'widgets/soal_24.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,8 +10,43 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Soal24(),
+      home: HomePage()
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Dialog"),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: (){
+            showDialog(
+              context: context, 
+              builder: (context) => AlertDialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)
+                ),
+                title: Text("Judul Dialog"),
+                content: Text("Ini adalah konten dialognya"),
+                actions: [
+                  ElevatedButton(onPressed: (){}, child: Text("Tutup"))
+                ],
+              ),
+            );
+          }, 
+          child: Text("SHOW DIALOG"),
+        ),
+      ),
     );
   }
 }
