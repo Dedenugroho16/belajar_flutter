@@ -17,45 +17,52 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: Scaffold(
-        appBar: AppBar(
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                child: Icon(Icons.camera_alt)
-              ),
-              Tab(
-                text: "Chats",
-              ),
-              Tab(
-                text: "Status",
-              ),
-              Tab(
-                text: "Calls",
-              ),
-            ] 
-          ),
-          title: Text("Tab Bar"),
-          backgroundColor: Colors.teal,
-        ),
+  State<HomePage> createState() => _HomePageState();
+}
 
-        body: TabBarView(children: [
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+  late TabController tabC = TabController(length: 4, vsync: this);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        bottom: TabBar(
+          controller: tabC,
+          tabs: [
+            Tab(
+              child: Icon(Icons.camera_alt)
+            ),
+            Tab(
+              text: "Chats",
+            ),
+            Tab(
+              text: "Status",
+            ),
+            Tab(
+              text: "Calls",
+            ),
+          ] 
+        ),
+        title: Text("Tab Bar"),
+        backgroundColor: Colors.teal,
+      ),
+
+      body: TabBarView(
+        controller: tabC,
+        children: [
           Center(child: Text("CAMERA")),
           Center(child: Text("CHATS")),
           Center(child: Text("STATUS")),
           Center(child: Text("CALLS"))
-        ]),
+      ]),
 
-      ),
     );
   }
 }
