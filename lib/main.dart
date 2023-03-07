@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
@@ -18,51 +18,67 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({
-    super.key,
-  });
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
-  late TabController tabC = TabController(length: 4, vsync: this);
+class _HomePageState extends State<HomePage> {
+  final List data = [
+    {
+      'judul' : 'pilihan ke 1',
+      'data' : 1
+    },
+    {
+      'judul' : 'pilihan ke 2',
+      'data' : 2
+    },
+    {
+      'judul' : 'pilihan ke 3',
+      'data' : 3
+    },
+    {
+      'judul' : 'pilihan ke 4',
+      'data' : 4
+    }
+  ];
+
+  late int dataAwal;
+
+  @override
+  void initState() {
+    dataAwal = data[0]['data'];
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        bottom: TabBar(
-          controller: tabC,
-          tabs: [
-            Tab(
-              child: Icon(Icons.camera_alt)
-            ),
-            Tab(
-              text: "Chats",
-            ),
-            Tab(
-              text: "Status",
-            ),
-            Tab(
-              text: "Calls",
-            ),
-          ] 
-        ),
-        title: Text("Tab Bar"),
-        backgroundColor: Colors.teal,
+        title: Text("DropDown"),
+        centerTitle: true,
       ),
-
-      body: TabBarView(
-        controller: tabC,
-        children: [
-          Center(child: Text("CAMERA")),
-          Center(child: Text("CHATS")),
-          Center(child: Text("STATUS")),
-          Center(child: Text("CALLS"))
-      ]),
-
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(30),
+          child: DropdownButton<int>(
+            value: dataAwal,
+            items: data.
+            map(
+              (e) => DropdownMenuItem(
+                child: Text("${e['judul']}"),
+                value: e['data'] as int,
+              ),
+            )
+            .toList(), 
+            onChanged: (value) {
+              setState(() {
+                dataAwal = value!;
+              });
+            },
+          ),
+        ),
+      ),
     );
   }
 }
