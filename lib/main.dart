@@ -1,10 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, deprecated_member_use
-
-// vid ke 4 14:00
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
-void main() {
+void main(){
   runApp(MyApp());
 }
 
@@ -19,91 +17,45 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({
     super.key,
   });
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-
-  bool isHidden = true;
-  TextEditingController emailC = TextEditingController();
-  TextEditingController passwordC = TextEditingController();
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Text Field",
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              Tab(
+                child: Icon(Icons.camera_alt)
+              ),
+              Tab(
+                text: "Chats",
+              ),
+              Tab(
+                text: "Status",
+              ),
+              Tab(
+                text: "Calls",
+              ),
+            ] 
+          ),
+          title: Text("Tab Bar"),
+          backgroundColor: Colors.teal,
         ),
-        centerTitle: true,
+
+        body: TabBarView(children: [
+          Center(child: Text("CAMERA")),
+          Center(child: Text("CHATS")),
+          Center(child: Text("STATUS")),
+          Center(child: Text("CALLS"))
+        ]),
+
       ),
-      body: ListView(
-        padding: EdgeInsets.all(20),
-        children: [
-          TextField(
-            controller: emailC,
-            autocorrect: false,
-            keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.next,
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              labelText: "email",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15)
-              ),
-              prefixIcon: Icon(Icons.email),
-            ),
-          ),
-          SizedBox(height: 20,),
-          TextField(
-            controller: passwordC,
-            autocorrect: false,
-            obscureText: isHidden,
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              labelText: "password",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15)
-              ),
-              prefixIcon: Icon(Icons.vpn_key),
-              suffix: IconButton(
-                onPressed: (){
-                  if(isHidden==true) {
-                    isHidden = false;
-                  } else {
-                    isHidden = true;
-                  }
-                  setState(() {});
-                }, 
-                icon: Icon(Icons.remove_red_eye)
-              ),
-            ),
-          ),
-          SizedBox(height: 50,),
-          ElevatedButton(
-            onPressed: (){
-              print("LOGIN DENGAN EMAIL: '${emailC.text}', PASSWORD: '${passwordC.text}'");
-            }, 
-            // ignore: sort_child_properties_last
-            child: Text(
-              "Login",
-            ),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.green,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15)
-              )
-            ),
-          )
-        ],
-      )
     );
   }
 }
