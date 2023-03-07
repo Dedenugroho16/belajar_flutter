@@ -1,8 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
-void main() {
+void main(){
   runApp(MyApp());
 }
 
@@ -17,67 +17,67 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({
     super.key,
   });
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  late int index;
-  List showWidgets = [
-    Center(
-        child: Text("Home"),
-      ),
-    Center(
-        child: Text("Profile"),
-      ),
-    Center(
-        child: Text("Keranjang"),
-      ),
-  ];
-  @override
-  void initState() {
-    index = 0;
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text("Bottom Sheets"),
         centerTitle: true,
-        title: Text("Bottom Navigation Bar"),
       ),
-      body: showWidgets[index],
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.teal,
-        selectedItemColor: Colors.amber,
-        unselectedItemColor: Colors.white,
-        onTap: (value) {
-          setState(() {
-            index = value;
-          });
-        },
-        currentIndex: index,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
+
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(30),
+          child: ElevatedButton(
+            onPressed: (){
+              showModalBottomSheet(
+                isDismissible: false,
+                context: context, 
+                builder: (context) => Container(
+                  height: 270,
+                  color: Colors.white,
+                  child: ListView(
+                    children: [
+                      ListTile(
+                        onTap: () => print("Klik Photo"),
+                        leading: Icon(Icons.photo),
+                        title: Text("Photo"),
+                      ),
+                      ListTile(
+                        onTap: () => print("Klik Music"),
+                        leading: Icon(Icons.music_note_rounded),
+                        title: Text("Music"),
+                      ),
+                      ListTile(
+                        onTap: () => print("Klik Video"),
+                        leading: Icon(Icons.video_file_rounded),
+                        title: Text("Video"),
+                      ),
+                      ListTile(
+                        onTap: () => print("Klik Share"),
+                        leading: Icon(Icons.share),
+                        title: Text("Share"),
+                      ),
+                      ListTile(
+                        onTap: () => Navigator.pop(context),
+                        leading: Icon(Icons.cancel),
+                        title: Text("Cancel"),
+                      ),
+                    ],
+                  ),
+                )
+              );
+            }, 
+            child: Text("SHOW BOTTOM SHEETS"),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: "Keranjang",
-          ),
-        ]
+        ),
       ),
+
     );
   }
 }
