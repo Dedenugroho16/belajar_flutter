@@ -1,8 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print
 
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -18,36 +18,30 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({
+    super.key,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final List data = [
-    {
-      'judul' : 'pilihan ke 1',
-      'data' : 1
-    },
-    {
-      'judul' : 'pilihan ke 2',
-      'data' : 2
-    },
-    {
-      'judul' : 'pilihan ke 3',
-      'data' : 3
-    },
-    {
-      'judul' : 'pilihan ke 4',
-      'data' : 4
-    }
+  late int index;
+  List showWidgets = [
+    Center(
+        child: Text("Home"),
+      ),
+    Center(
+        child: Text("Profile"),
+      ),
+    Center(
+        child: Text("Keranjang"),
+      ),
   ];
-
-  late int dataAwal;
-
   @override
   void initState() {
-    dataAwal = data[0]['data'];
+    index = 0;
     super.initState();
   }
 
@@ -55,29 +49,34 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("DropDown"),
         centerTitle: true,
+        title: Text("Bottom Navigation Bar"),
       ),
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(30),
-          child: DropdownButton<int>(
-            value: dataAwal,
-            items: data.
-            map(
-              (e) => DropdownMenuItem(
-                child: Text("${e['judul']}"),
-                value: e['data'] as int,
-              ),
-            )
-            .toList(), 
-            onChanged: (value) {
-              setState(() {
-                dataAwal = value!;
-              });
-            },
+      body: showWidgets[index],
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.teal,
+        selectedItemColor: Colors.amber,
+        unselectedItemColor: Colors.white,
+        onTap: (value) {
+          setState(() {
+            index = value;
+          });
+        },
+        currentIndex: index,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: "Keranjang",
+          ),
+        ]
       ),
     );
   }
