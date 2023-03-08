@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -26,58 +26,140 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bottom Sheets"),
+        title: Text("Drawer"),
         centerTitle: true,
       ),
-
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(30),
-          child: ElevatedButton(
-            onPressed: (){
-              showModalBottomSheet(
-                isDismissible: false,
-                context: context, 
-                builder: (context) => Container(
-                  height: 270,
-                  color: Colors.white,
-                  child: ListView(
-                    children: [
-                      ListTile(
-                        onTap: () => print("Klik Photo"),
-                        leading: Icon(Icons.photo),
-                        title: Text("Photo"),
-                      ),
-                      ListTile(
-                        onTap: () => print("Klik Music"),
-                        leading: Icon(Icons.music_note_rounded),
-                        title: Text("Music"),
-                      ),
-                      ListTile(
-                        onTap: () => print("Klik Video"),
-                        leading: Icon(Icons.video_file_rounded),
-                        title: Text("Video"),
-                      ),
-                      ListTile(
-                        onTap: () => print("Klik Share"),
-                        leading: Icon(Icons.share),
-                        title: Text("Share"),
-                      ),
-                      ListTile(
-                        onTap: () => Navigator.pop(context),
-                        leading: Icon(Icons.cancel),
-                        title: Text("Cancel"),
-                      ),
-                    ],
-                  ),
-                )
-              );
-            }, 
-            child: Text("SHOW BOTTOM SHEETS"),
+      drawer: Drawer(
+          child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(20),
+            alignment: Alignment.bottomLeft,
+            color: Colors.blue,
+            width: double.infinity,
+            height: 150,
+            child: Text(
+              "Dashboard Menu",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+              ),
+            ),
           ),
-        ),
-      ),
-
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                ListTile(
+                  onTap: () {
+                    print("Home Diklik");
+                  },
+                  leading: Icon(Icons.home),
+                  title: Text("Home"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Produk Diklik");
+                  },
+                  leading: Icon(Icons.production_quantity_limits_sharp),
+                  title: Text("Produk"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Home Diklik");
+                  },
+                  leading: Icon(Icons.home),
+                  title: Text("Home"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Produk Diklik");
+                  },
+                  leading: Icon(Icons.production_quantity_limits_sharp),
+                  title: Text("Produk"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Home Diklik");
+                  },
+                  leading: Icon(Icons.home),
+                  title: Text("Home"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Produk Diklik");
+                  },
+                  leading: Icon(Icons.production_quantity_limits_sharp),
+                  title: Text("Produk"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Produk Diklik");
+                  },
+                  leading: Icon(Icons.production_quantity_limits_sharp),
+                  title: Text("Produk"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Home Diklik");
+                  },
+                  leading: Icon(Icons.home),
+                  title: Text("Home"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Produk Diklik");
+                  },
+                  leading: Icon(Icons.production_quantity_limits_sharp),
+                  title: Text("Produk"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Produk Diklik");
+                  },
+                  leading: Icon(Icons.production_quantity_limits_sharp),
+                  title: Text("Produk"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Home Diklik");
+                  },
+                  leading: Icon(Icons.home),
+                  title: Text("Home"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Produk Diklik");
+                  },
+                  leading: Icon(Icons.production_quantity_limits_sharp),
+                  title: Text("Produk"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Produk Diklik");
+                  },
+                  leading: Icon(Icons.production_quantity_limits_sharp),
+                  title: Text("Produk"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Home Diklik");
+                  },
+                  leading: Icon(Icons.home),
+                  title: Text("Home"),
+                ),
+                ListTile(
+                  onTap: () {
+                    print("Produk Diklik");
+                  },
+                  leading: Icon(Icons.production_quantity_limits_sharp),
+                  title: Text("Produk"),
+                ),
+              ],
+            ),
+          )
+        ],
+      )),
     );
   }
 }
